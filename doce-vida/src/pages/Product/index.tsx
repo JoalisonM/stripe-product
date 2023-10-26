@@ -8,12 +8,14 @@ import { Skeleton } from "../../components/Skeleton";
 
 export const Product = () => {
   const { id } = useParams();
-  const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] = useState(false);
-  const { getProduct, product, loadingProduct, checkoutSession } = useProducts();
+  const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
+    useState(false);
+  const { getProduct, product, loadingProduct, checkoutSession } =
+    useProducts();
 
-  const price = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
+  const price = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
   }).format(product.price!);
 
   useEffect(() => {
@@ -28,7 +30,7 @@ export const Product = () => {
       window.location.href = response.checkoutUrl;
     } catch (err) {
       setIsCreatingCheckoutSession(false);
-      alert("falha ao redirecionar")
+      alert("falha ao redirecionar");
     }
   };
 

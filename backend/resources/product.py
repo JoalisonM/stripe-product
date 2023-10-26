@@ -56,8 +56,8 @@ class ProductCheckout(Resource):
     stripe.api_key = stripeKey
 
     checkoutSession = stripe.checkout.Session.create(
-      success_url="http://127.0.0.1:5173/sucess",
-      cancel_url="http://127.0.0.1:5173",
+      success_url="http://127.0.0.1:8080/sucess",
+      cancel_url="http://127.0.0.1:8080",
       mode="payment",
       line_items=[
         {
